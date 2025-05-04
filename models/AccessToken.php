@@ -18,8 +18,6 @@ class AccessToken
 
     public function freshToken(): string
     {
-        file_put_contents('webhook.json', 12345, FILE_APPEND);
-
         $stmt = $this->db->prepare("SELECT `refresh_token` FROM `access_token`");
         $stmt->execute();
         $refreshToken = $stmt->fetchColumn();
